@@ -1,20 +1,29 @@
 /* eslint-disable jsx-a11y/accessible-emoji, no-unused-vars */
 import React from 'react';
-import './Test.view.css';
-const styles = { h14tl145: 'css-byr42u', hb8n212: 'css-lu8nfd' };
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+const styles = StyleSheet.create({
+  hjhrc2t: {
+    flexDirection: 'column',
+    backgroundColor: 'deepskyblue',
+    margin: 50,
+  },
+  h1w3rbt3: { fontSize: 28 },
+});
 
 const Test = props => {
   return (
-    <button
-      data-test-id={props['data-test-id'] || 'Test'}
-      onClick={props.onClick}
-      className={styles.h14tl145}
+    <TouchableWithoutFeedback
+      activeOpacity={0.7}
+      onPress={props.onClick}
+      underlayColor="transparent"
     >
-      <span data-test-id="Test.Text" className={styles.hb8n212}>
-        Hey I'm a button!
-      </span>
-      {props.children}
-    </button>
+      <View testID={props['testID'] || 'Test'} style={styles.hjhrc2t}>
+        <Text testID="Test.Text" style={styles.h1w3rbt3}>
+          Hey I'm a button!
+        </Text>
+        {props.children}
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
